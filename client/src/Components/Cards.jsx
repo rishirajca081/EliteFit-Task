@@ -166,41 +166,43 @@ const Cards = () => {
   
     return (
         <>
-      <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '20px',
-          padding: '20px',
-          margin: '5px',
-          justifyContent: 'center'
-        }}>
-          {cards.map(card => (
-            <div 
-              key={card.id} 
-              style={{
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',  
-                ':hover': {
-                  transform: 'scale(1.05)', 
-                  boxShadow: '0 8px 16px rgba(0, 0, 0, 0.5)'
-                }
-              }}
-            >
-              <Card
-                id={card.id}
-                title={card.title}
-                description={card.description}
-                dueDate={card.dueDate}
-                priority={card.priority}
-                status={card.status}
-                onDelete={() => handleDelete(card.id)}
-                onToggleComplete={() => handleToggleComplete(card.id)}
-              />
-            </div>
-          ))}
+     <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gap: '40px',        // Controls the spacing between columns
+    rowGap: '70px',     // Adds extra spacing between rows
+    padding: '2px',
+    margin: '30px',
+    justifyContent: 'center'
+}}>
+
+  {cards.map((card) => (
+    <div 
+    key={card.id} 
+    style={{
+      transition: 'transform 0.4s ease, box-shadow 0.3s ease',
+      transform: card.isHovered ? 'scale(1.05)' : 'scale(1)',
+      boxShadow: card.isHovered ? '0 8px 16px rgba(0, 0, 0, 0.5)' : 'none',
+      display:"flex", justifyContent:"center",width:"250px",gap:"30px"
+    }}
+    onMouseEnter={() => setCards(cards.map(c => c.id === card.id ? { ...c, isHovered: true } : c))}
+    onMouseLeave={() => setCards(cards.map(c => c.id === card.id ? { ...c, isHovered: false } : c))}
+    >
+      <Card
+        id={card.id}
+        title={card.title}
+        description={card.description}
+        dueDate={card.dueDate}
+        priority={card.priority}
+        status={card.status}
+        onDelete={() => handleDelete(card.id)}
+        onToggleComplete={() => handleToggleComplete(card.id)}
+      />
+    </div>
+  ))}
+
         </div>
-          {cards.length===0 && (
-            <div style={{display:"flex", justifyContent:"center"}}> No Tasks Found !</div>
-          )}
+          
           </>
     );
   };
