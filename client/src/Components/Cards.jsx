@@ -118,6 +118,7 @@ const Cards = () => {
       );
       setCards(updatedCards);
       localStorage.setItem('tasks', JSON.stringify(updatedCards));
+      dispatch(updateui());
     };
   
     useEffect(() => {
