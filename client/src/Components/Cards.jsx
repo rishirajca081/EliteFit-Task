@@ -170,8 +170,8 @@ const Cards = () => {
      <div style={{
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 1fr)',
-    gap: '40px',        // Controls the spacing between columns
-    rowGap: '70px',     // Adds extra spacing between rows
+    gap: '40px',       
+    rowGap: '70px',    
     padding: '2px',
     margin: '30px',
     justifyContent: 'center'

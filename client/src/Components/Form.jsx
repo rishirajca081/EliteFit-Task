@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setShowForm } from "../features/Form/ShowFormslice";
 import { removeFormdata } from "../features/Form/formDataReducer";
-
+import {updateui} from "../features/Loadpage/Loadcontent";
 const Form = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.formdata);
@@ -59,7 +59,7 @@ const Form = () => {
       dueDate: "",
       completed: false,
     });
-
+    dispatch(updateui());
     dispatch(setShowForm(false)); 
     dispatch(removeFormdata());
   };

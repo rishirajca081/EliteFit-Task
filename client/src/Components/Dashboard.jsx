@@ -10,17 +10,17 @@ const Dashboard = () => {
   const [totalCount, setTotalCount] = useState(0);
   const load = useSelector((state) => state.rerender); 
   useEffect(() => {
-    // Get today's date for comparison
+   
     const today = new Date().toISOString().split('T')[0];
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-    // Calculate counts
+   
     const upcomingCount = tasks.filter(task => task.dueDate >= today && task.status !== 'completed').length;
     const missedCount = tasks.filter(task => task.dueDate < today && task.status !== 'completed').length;
     const completedCount = tasks.filter(task => task.status === 'completed').length;
     const totalCount = tasks.length;
 
-    // Update state with the calculated counts
+   
     setUpCount(upcomingCount);
     setMissCount(missedCount);
     setCompleteCount(completedCount);
