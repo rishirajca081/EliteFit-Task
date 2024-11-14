@@ -15,28 +15,28 @@ Elite Fit Task Manager is a simple task management tool designed to help users o
 To set up the project locally, follow these steps:
 
 ### Clone the repository:
-
-bash
-Copy code
+```bash
 git clone https://github.com/yourusername/elite-fit-task-manager.git
-cd elite-fit-task-manager
+cd elite-fit-task-manager 
+```
 ### Install dependencies:
 
-bash
-Copy code
+```bash
+
 npm install
+```
 ### Run the project:
 
-bash
-Copy code
+```bash
+
 npm start
+```
 ### Build the project (optional, for deployment):
 
-bash
-Copy code
+```bash
 npm run build
 Open the project: Go to http://localhost:3000 in your browser to view the app.
-
+```
 ## Assumptions Made During Development
 Task Structure: Each task has a unique ID, title, description, due date, priority (High, Medium, Low), and status (Completed, Pending).<br/>
 Due Date: Users can only select a due date equal to or later than the current date.<br/>
